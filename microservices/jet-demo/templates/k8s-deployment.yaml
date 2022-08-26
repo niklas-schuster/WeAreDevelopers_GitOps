@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{- include "identifier" . }}"
+  namespace: {{ .Values.application.stage }}
+  labels:
+    {{- include "labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.application.replicas }}
+  template:
+    metadata:
+      name: "{{- include "identifier" . }}"
+      labels:
+        {{- include "labels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: "{{- include "identifier" . }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+          
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      {{- include "selectorLabels" . | nindent 6 }}

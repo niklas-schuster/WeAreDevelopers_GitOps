@@ -1,0 +1,20 @@
+---
+apiVersion: xtrinity.cloud.platform.api/v1alpha1
+kind: XApiGateway
+metadata:
+  name: "{{- include "identifier" . }}"
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  service:
+    name:  {{ .Values.application.name }}
+    stage: {{ .Values.application.stage }}
+  compositionSelector:
+    matchLabels:
+      provider: aws
+      platform: xTrinity
+  parameters:
+    protocol: HTTP
+    region: {{ .Values.application.region }}
+    autoDeploy: true
+    domainName: ntt-tech-demo.com

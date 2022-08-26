@@ -1,0 +1,15 @@
+apiVersion: xtrinity.cloud.platform.api/v1alpha1
+kind: XK8sCluster
+metadata:
+  name: dev-cluster
+spec:
+  id: dev-cluster
+  parameters:
+    nodeSize: small
+    minNodeCount: 2
+    region: eu-central-1
+    xTrinityVersion: 0.1.0
+  compositionSelector:
+    matchLabels:
+      provider: aws
+      platform: xTrinity

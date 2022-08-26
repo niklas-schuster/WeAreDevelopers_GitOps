@@ -1,0 +1,16 @@
+application:
+  name:     jet-demo
+  stage:    dev
+  region:   eu-central-1
+  replicas: 1
+  cluster:  dev-cluster
+
+image:
+  repository: gcr.io/google_containers/echoserver
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: 1.4
+
+service:
+  type: NodePort
+  port: 80
