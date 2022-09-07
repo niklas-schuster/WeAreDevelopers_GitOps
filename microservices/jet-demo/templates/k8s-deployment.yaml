@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: "{{- include "identifier" . }}"
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: nginx:latest
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 80
