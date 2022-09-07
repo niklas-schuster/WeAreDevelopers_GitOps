@@ -18,3 +18,5 @@ spec:
     region: {{ .Values.application.region }}
     autoDeploy: true
     domainName: ntt-tech-demo.com
+    albName: "{{ .Values.application.cluster }}-services"
+    clusterName: {{ .Values.application.cluster }}
