@@ -8,7 +8,7 @@ application:
 image:
   repository: 518283773752.dkr.ecr.eu-central-1.amazonaws.com/jet-demo-frontend
   pullPolicy: Always
-  tag: 0.4.1
+  tag: 0.5.0
 
 service:
   type: NodePort
