@@ -1,15 +1,18 @@
-apiVersion: xtrinity.cloud.platform.api/v1alpha1
-kind: XK8sCluster
+apiVersion: javaland.platform.api/v1alpha1
+kind: XKubernetesCluster
 metadata:
   name: dev-cluster
 spec:
   id: dev-cluster
+  stage: dev
   parameters:
-    nodeSize: small
-    minNodeCount: 2
-    region: eu-central-1
-    xTrinityVersion: 0.1.0
+    version: '1.25'
+    region: eu-west-1
+    staticNodeGroup:
+      nodeSize: small 
+      nodeCount: 2
+    remoteAccess:
+      controllerSecurityGroup: sg-0c0257115acef4fac
   compositionSelector:
     matchLabels:
       provider: aws
-      platform: xTrinity
