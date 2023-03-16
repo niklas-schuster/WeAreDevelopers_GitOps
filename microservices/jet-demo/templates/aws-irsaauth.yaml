@@ -11,6 +11,7 @@ spec:
   parameters:
     oidcProvider: {{ .Values.irsa.oidcProvider }}
     serviceAccount: "{{- include "identifier" . }}-sa"
+    oidcProvider: oidc.eks.eu-west-1.amazonaws.com/id/4AD430FA3CA1E40C32EF47C7C5C41E9B
     policyDocument: |
       {
           "Version": "2012-10-17",
