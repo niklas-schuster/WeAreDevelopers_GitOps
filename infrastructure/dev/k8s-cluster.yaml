@@ -6,7 +6,7 @@ spec:
   id: dev-cluster
   stage: dev
   parameters:
-    nodeSize: small
+    nodeSize: medium
     minNodeCount: 2
     region: eu-west-1
   compositionSelector:
