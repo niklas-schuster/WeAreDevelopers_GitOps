@@ -1,6 +1,6 @@
 {{- if .Values.irsa.enable -}}
 ---
-apiVersion: aws.community.day.dach/v1alpha1
+apiVersion: javaland.cloud.platform.api/v1alpha1
 kind: XIrsaAuth
 metadata:
   name: "{{- include "identifier" . }}-irsa"
@@ -9,7 +9,7 @@ spec:
     name:  "{{- include "identifier" . }}"
     stage: {{ .Values.application.stage }}
   parameters:
-    clusterName: {{ .Values.application.cluster }}
+    oidcProvider: {{ .Values.irsa.oidcProvider }}
     serviceAccount: "{{- include "identifier" . }}-sa"
     policyDocument: |
       {

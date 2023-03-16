@@ -8,6 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/group.name: services
     alb.ingress.kubernetes.io/load-balancer-name: "{{ .Values.application.cluster }}-services"
     alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/scheme: internal 
     argocd.argoproj.io/sync-wave: "2"
 spec:
   rules:
