@@ -1,0 +1,49 @@
+{{- if .Values.irsa.enable -}}
+---
+apiVersion: aws.community.day.dach/v1alpha1
+kind: XIrsaAuth
+metadata:
+  name: "{{- include "identifier" . }}-irsa"
+spec:
+  service:
+    name:  "{{- include "identifier" . }}"
+    stage: {{ .Values.application.stage }}
+  parameters:
+    clusterName: {{ .Values.application.cluster }}
+    serviceAccount: "{{- include "identifier" . }}-sa"
+    policyDocument: |
+      {
+          "Version": "2012-10-17",
+          "Statement": [
+              {
+                  "Sid": "ListAndDescribe",
+                  "Effect": "Allow",
+                  "Action": [
+                      "dynamodb:List*",
+                      "dynamodb:DescribeReservedCapacity*",
+                      "dynamodb:DescribeLimits",
+                      "dynamodb:DescribeTimeToLive"
+                  ],
+                  "Resource": "*"
+              },
+              {
+                  "Sid": "SpecificTable",
+                  "Effect": "Allow",
+                  "Action": [
+                      "dynamodb:BatchGet*",
+                      "dynamodb:DescribeStream",
+                      "dynamodb:DescribeTable",
+                      "dynamodb:Get*",
+                      "dynamodb:Query",
+                      "dynamodb:Scan",
+                      "dynamodb:BatchWrite*",
+                      "dynamodb:CreateTable",
+                      "dynamodb:Delete*",
+                      "dynamodb:Update*",
+                      "dynamodb:PutItem"
+                  ],
+                  "Resource": "arn:aws:dynamodb:{{ .Values.application.region }}:{{ .Values.application.account }}:table/ShoppingList"
+              }
+          ]
+      }
+{{- end }}
