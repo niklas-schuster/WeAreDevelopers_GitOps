@@ -4,6 +4,8 @@ kind: Service
 metadata:
   name: "{{- include "identifier" . }}-service"
   namespace: {{ .Values.application.stage }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   selector:
     {{- include "selectorLabels" . | nindent 4 }}
