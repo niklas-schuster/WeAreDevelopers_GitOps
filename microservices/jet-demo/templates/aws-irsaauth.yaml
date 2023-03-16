@@ -9,7 +9,6 @@ spec:
     name:  "{{- include "identifier" . }}"
     stage: {{ .Values.application.stage }}
   parameters:
-    clusterName: {{ .Values.application.cluster }}
     serviceAccount: "{{- include "identifier" . }}-sa"
     policyDocument: |
       {
