@@ -10,12 +10,6 @@ spec:
     name:  {{ .Values.application.name }}
     stage: {{ .Values.application.stage }}
   parameters:
-    protocol: HTTP
     region: {{ .Values.application.region }}
-    autoDeploy: true
-    domainName: ntt-tech-demo.com
-    # albName: "{{ .Values.application.cluster }}-services"
-    # clusterName: {{ .Values.application.cluster }}
-  compositionSelector:
-    matchLabels:
-      provider: aws
+    protocol: HTTP
+    domainName: javaland.ntt-tech-demo.com
