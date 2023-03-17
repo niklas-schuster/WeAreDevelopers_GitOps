@@ -42,7 +42,7 @@ spec:
                       "dynamodb:Update*",
                       "dynamodb:PutItem"
                   ],
-                  "Resource": "arn:aws:dynamodb:{{ .Values.application.region }}:{{ .Values.application.account }}:table/ShoppingList"
+                  "Resource": "arn:aws:dynamodb:{{ .Values.application.region }}:{{ .Values.irsa.account }}:table/ShoppingList"
               }
           ]
       }
