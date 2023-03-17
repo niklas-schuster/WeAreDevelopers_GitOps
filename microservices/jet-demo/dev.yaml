@@ -1,10 +1,9 @@
 application:
-  name:   javaland-demo
-  stage:  dev
+  name: javaland-demo
+  stage: dev
   region: eu-west-1
-  account: '518283773752'
+  domain: javaland.ntt-tech-demo.com
   replicas: 1
-  cluster: dev-cluster
 
 image:
   repository: 518283773752.dkr.ecr.eu-west-1.amazonaws.com/aws-community-day-dach-2022
@@ -20,4 +19,5 @@ autoscaling:
 
 irsa:
   enable: true
+  account: '518283773752'
   oidcProvider: oidc.eks.eu-west-1.amazonaws.com/id/4AD430FA3CA1E40C32EF47C7C5C41E9B
