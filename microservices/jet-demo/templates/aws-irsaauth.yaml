@@ -1,9 +1,10 @@
 {{- if .Values.irsa.enable -}}
 ---
 apiVersion: javaland.cloud.platform.api/v1alpha1
-kind: XIrsaAuth
+kind: IrsaAuth
 metadata:
   name: "{{- include "identifier" . }}-irsa"
+  namespace: {{ .Values.application.stage }}
 spec:
   service:
     name:  "{{- include "identifier" . }}"
