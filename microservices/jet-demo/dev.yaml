@@ -3,6 +3,7 @@ application:
   stage: dev
   region: eu-west-1
   domain: javaland.ntt-tech-demo.com
+  cluster: dev-cluster
   replicas: 1
 
 image:
