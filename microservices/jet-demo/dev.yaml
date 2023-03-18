@@ -9,7 +9,7 @@ application:
 image:
   repository: 518283773752.dkr.ecr.eu-west-1.amazonaws.com/javaland
   pullPolicy: Always
-  tag: latest
+  tag: 0.0.1
 
 service:
   type: NodePort
