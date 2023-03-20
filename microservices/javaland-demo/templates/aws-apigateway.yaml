@@ -1,8 +1,9 @@
 ---
 apiVersion: javaland.cloud.platform.api/v1alpha1
-kind: XApiGateway
+kind: ApiGateway
 metadata:
   name: "{{- include "identifier" . }}"
+  namespace: {{ .Values.application.stage }}
   annotations:
     argocd.argoproj.io/sync-wave: "3"
 spec:
