@@ -4,7 +4,7 @@ application:
   region: eu-west-1
   domain: javaland.ntt-tech-demo.com
   cluster: dev-cluster
-  replicas: 1
+  replicas: 2
 
 image:
   repository: 518283773752.dkr.ecr.eu-west-1.amazonaws.com/javaland
