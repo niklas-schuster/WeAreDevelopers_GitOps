@@ -33,7 +33,7 @@ spec:
       size:  medium
       count: 2
     auth:
-      role: arn:aws:iam::518283773752:role/aws-reserved/sso.amazonaws.com/eu-central-1/AWSReservedSSO_AdministratorAccess_0d59eb192d59530a
+      role: arn:aws:sts::518283773752:assumed-role/AWSReservedSSO_AdministratorAccess_0d59eb192d59530a/niklas.schuster@nttdata.com
   compositionSelector:
     matchLabels:
       provider: aws
