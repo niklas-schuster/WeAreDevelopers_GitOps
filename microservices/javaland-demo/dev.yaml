@@ -17,3 +17,6 @@ service:
 
 autoscaling:
   enabled: false
+
+irsa:
+  enabled: false
