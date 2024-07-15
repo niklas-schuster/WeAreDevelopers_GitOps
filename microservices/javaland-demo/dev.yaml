@@ -1,15 +1,15 @@
 application:
-  name: javaland-demo
+  name: we.are.developers.demo
   stage: dev
-  region: eu-west-1
-  domain: javaland.ntt-tech-demo.com
-  cluster: dev-cluster
+  region: eu-west-2
+  domain: wad.ntt-tech-demo.com
+  cluster: test-eks-cluster
   replicas: 2
 
 image:
-  repository: 518283773752.dkr.ecr.eu-west-1.amazonaws.com/javaland
+  repository: 518283773752.dkr.ecr.eu-west-2.amazonaws.com/we.are.developers.demo
   pullPolicy: Always
-  tag: 0.0.1
+  tag: 1.0.1
 
 service:
   type: NodePort
@@ -17,8 +17,3 @@ service:
 
 autoscaling:
   enabled: false
-
-irsa:
-  enable: true
-  account: '518283773752'
-  oidcProvider: oidc.eks.eu-west-1.amazonaws.com/id/4AD430FA3CA1E40C32EF47C7C5C41E9B
