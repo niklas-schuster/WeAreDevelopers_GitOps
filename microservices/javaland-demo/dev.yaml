@@ -15,6 +15,12 @@ service:
   type: NodePort
   port: 9090
 
+database:
+  enabled: true
+  type: NoSQL
+  table:
+    name: TodoTable
+
 autoscaling:
   enabled: false
 
