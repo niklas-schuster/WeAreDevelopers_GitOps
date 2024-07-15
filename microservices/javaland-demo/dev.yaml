@@ -1,5 +1,5 @@
 application:
-  name: we.are.developers.demo
+  name: wad-demo
   stage: dev
   region: eu-west-2
   domain: wad.ntt-tech-demo.com
