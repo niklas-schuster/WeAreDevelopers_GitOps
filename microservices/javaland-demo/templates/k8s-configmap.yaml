@@ -6,3 +6,4 @@ metadata:
   namespace: {{ .Values.application.stage }}
 data:
   AWS_REGION: {{ .Values.application.region }}
+  DYNAMODB_TABLE_NAME:  {{ .Values.database.tableName }}
