@@ -1,0 +1,21 @@
+---
+apiVersion: we.are.developers.demo/v1alpha1
+kind: XNoSQLDatabase
+metadata:
+  name: "{{- include "identifier" . }}"
+spec:
+  service:
+    name: {{ .Values.application.name }}
+    region: {{ .Values.application.region }}
+    cluster: {{ .Values.application.cluster }}
+    namespace: {{ .Values.application.stage }}
+    serviceAccount: "{{- include "identifier" . }}-sa"
+  table:
+    name: {{ .Values.database.table.name }}
+    attributes: 
+      - name: id
+        type: S
+    key: id
+  compositionSelector:
+    matchLabels:
+      provider: aws
