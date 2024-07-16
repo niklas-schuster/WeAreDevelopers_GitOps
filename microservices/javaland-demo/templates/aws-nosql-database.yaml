@@ -2,7 +2,7 @@
 apiVersion: we.are.developers.demo/v1alpha1
 kind: XNoSQLDatabase
 metadata:
-  name: "{{- include "identifier" . }}"
+  name: "{{- include "identifier" . }}-nosql-database"
 spec:
   service:
     name: {{ .Values.application.name }}
