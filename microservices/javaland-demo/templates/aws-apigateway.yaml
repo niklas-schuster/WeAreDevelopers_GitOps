@@ -2,7 +2,7 @@
 apiVersion: we.are.developers.demo/v1alpha1
 kind: XAPIGateway
 metadata:
-  name: "{{- include "identifier" . }}"
+  name: "{{- include "identifier" . }}-apigateway"
 spec:
   service:
     name: {{ .Values.application.name }}
