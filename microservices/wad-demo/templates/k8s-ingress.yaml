@@ -1,0 +1,24 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "{{- include "identifier" . }}-ingress"
+  namespace: {{ .Values.application.stage }}
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/group.name: services
+    alb.ingress.kubernetes.io/load-balancer-name: "{{ .Values.application.cluster }}-services"
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/scheme: internal 
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: "{{- include "identifier" . }}-service"
+                port:
+                  number: {{ .Values.service.port }}
